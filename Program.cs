@@ -1,7 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using MySql.EntityFrameworkCore.Extensions;
+using ASP_example.data;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<PostData>(options =>
+    options.UseMySQL(builder.Configuration.GetConnectionString("PostData") ?? throw new InvalidOperationException("Connection string 'PostData' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

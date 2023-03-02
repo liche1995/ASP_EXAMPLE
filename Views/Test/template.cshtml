@@ -1,0 +1,10 @@
+@{
+    ViewData["title"] = "測試頁面";
+}
+
+<h1>這是測試頁面</h1>
+@ViewData["time"]
+@for (int i = 0; i < 20; i++)
+{
+    <li>@ViewData["text"]</li>
+}

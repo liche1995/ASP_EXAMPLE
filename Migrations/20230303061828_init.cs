@@ -7,7 +7,7 @@ using MySql.EntityFrameworkCore.Metadata;
 namespace ASP_example.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -23,7 +23,7 @@ namespace ASP_example.Migrations
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
                     title = table.Column<string>(type: "longtext", nullable: false),
                     author = table.Column<int>(type: "int", nullable: false),
-                    crtate_time = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    create_time = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     edit_time = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     soft_delete = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },

@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ASP_example.Migrations
 {
     [DbContext(typeof(PostData))]
-    [Migration("20230302072425_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20230303061828_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,7 +31,7 @@ namespace ASP_example.Migrations
                     b.Property<int>("author")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("crtate_time")
+                    b.Property<DateTime>("create_time")
                         .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("edit_time")

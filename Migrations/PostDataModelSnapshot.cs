@@ -28,7 +28,7 @@ namespace ASP_example.Migrations
                     b.Property<int>("author")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("crtate_time")
+                    b.Property<DateTime>("create_time")
                         .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("edit_time")

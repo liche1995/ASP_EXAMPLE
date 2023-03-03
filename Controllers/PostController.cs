@@ -56,7 +56,7 @@ namespace ASP_example.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,title,author,crtate_time,edit_time,soft_delete")] Post post)
+        public async Task<IActionResult> Create([Bind("id,title,author,create_time,edit_time,soft_delete")] Post post)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace ASP_example.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,title,author,crtate_time,edit_time,soft_delete")] Post post)
+        public async Task<IActionResult> Edit(int id, [Bind("id,title,author,create_time,edit_time,soft_delete")] Post post)
         {
             if (id != post.id)
             {

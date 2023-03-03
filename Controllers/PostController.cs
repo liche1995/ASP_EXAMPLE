@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using static System.DateTime;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -56,11 +57,16 @@ namespace ASP_example.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,title,author,create_time,edit_time,soft_delete")] Post post)
+        public async Task<IActionResult> Create([Bind("id,title,author")] Post post)
         {
             if (ModelState.IsValid)
             {
+                // add create time
+                DateTime now_time = DateTime.Now;
+                post.create_time = now_time;
+                post.edit_time = now_time;
                 _context.Add(post);
+                // save data
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -99,6 +105,7 @@ namespace ASP_example.Controllers
             {
                 try
                 {
+                    post.edit_time = DateTime.Now;
                     _context.Update(post);
                     await _context.SaveChangesAsync();
                 }
